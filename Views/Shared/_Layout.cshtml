@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Student Management System</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            @Html.ActionLink("Student Portal", "Index", "Student", new { area = "" }, new { @class = "navbar-brand fw-bold" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        @Html.ActionLink("Students", "Index", "Student", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Add Student", "Add", "Student", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    @Html.ActionLink("+ New Student", "Add", "Student", new { area = "" }, new { @class = "btn btn-light btn-sm fw-semibold text-primary" })
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Page Content -->
+    <main class="container my-4 flex-grow-1">
+        @RenderBody()
+    </main>
+
+    <!-- Sticky Footer -->
+    <footer class="bg-white border-top py-3 mt-auto">
+        <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center text-muted small">
+            <span>&copy; @DateTime.Now.Year - Student Database Management System</span>
+            <span>Built with ASP.NET MVC &amp; Bootstrap</span>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
